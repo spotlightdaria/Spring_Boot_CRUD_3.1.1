@@ -13,14 +13,13 @@ public class UserService {
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-
-    public User getOne(Long id){
-        return userRepository.getReferenceById(id);
+    public User getUserById(Long id){
+        return userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
     }
-    public List<User> getAll(){
+    public List<User> getAllUsers(){
         return userRepository.findAll();
     }
-    public void add(User user){
+    public void addUser(User user){
         userRepository.save(user);
     }
 

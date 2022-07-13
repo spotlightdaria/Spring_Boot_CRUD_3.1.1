@@ -4,8 +4,9 @@ import lombok.Data;
 
 import javax.persistence.*;
 
-@Data
+
 @Entity
+@Data
 @Table(name = "user")
 public class User {
 
